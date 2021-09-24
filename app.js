@@ -5,14 +5,13 @@ const btnResult = document.querySelector("#btn-result");
 const result = document.querySelector("#result")
 
 function profitOrLoss(){
-    const initial = initialPrice.value.toFixed(2);
-    const current = currentPrice.value.toFixed(2);
+    const initial = Number(initialPrice.value).toFixed(2);
+    const current = Number(currentPrice.value).toFixed(2);
 
-    if(initial === "" || current === "" || numberShare.value){
-        result.innerText = "Please do not leave any field empty."
+    if(initial === "" || current === "" || numberShare.value === ""){
+        alert("Please do not leave any field empty.");
     }
-
-    if(initial > current){
+    else if(initial > current){
         const loss = (initial-current)*numberShare.value;
         const lossPercent = (initial - current) * 100/initial;
         result.innerText = "Absolute loss is " + loss + " and percentage loss is " + lossPercent; 
