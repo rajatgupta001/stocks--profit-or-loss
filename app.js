@@ -5,8 +5,12 @@ const btnResult = document.querySelector("#btn-result");
 const result = document.querySelector("#result")
 
 function profitOrLoss(){
-    const initial = initialPrice.value;
-    const current = currentPrice.value;
+    const initial = initialPrice.value.toFixed(2);
+    const current = currentPrice.value.toFixed(2);
+
+    if(initial === "" || current === "" || numberShare.value){
+        result.innerText = "Please do not leave any field empty."
+    }
 
     if(initial > current){
         const loss = (initial-current)*numberShare.value;
